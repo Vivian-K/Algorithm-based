@@ -2,9 +2,8 @@
 思想：重复的走访要排序的数列，一次比较两个元素。如果顺序错误就交换，直到没有需要交换的元素。
 
 优化：加入标志性变量exchange（吧）,用于标志某一趟排序过程是否有数据交换。
-
 code：
-
+```
 def bubble_sort(list):
     for i in range(len(list)-1):
         b = False
@@ -22,18 +21,14 @@ def bubble_sort(list):
 
 my_list = [12,1,5,23,8,2,8,3,89,4,5,7,23,7]
 print(bubble_sort(my_list))
-
-运行结果：
-
- 
+```
 
 二、直接插入排序（插入排序）
 思想：每一趟将一个待排序的数字插入到有序序列中，直到全部插入完成。
 
 优化：在有序序列中插入一个数，可用二分查找，减少元素比较次数提高效率。
-
 code:
-
+```
 def insert_sort(list):
     if len(list) == 0:
         return []
@@ -50,12 +45,10 @@ def insert_sort(list):
         
 my_list = [3,2,5,9,8,6]
 print(insert_sort(my_list))
-运行结果：
-
-
+```
 
 优化：
-
+```
 def binary_search(list, end, item):
     low = 0
     high = end - 1
@@ -86,12 +79,12 @@ def insert_sort(list):
         
 my_list = [3,2,5,9,8,6]
 print(insert_sort(my_list))
-
+```
 三：希尔排序（插入排序）
 思想：对要排序的序列，先以步长5（步长选择自由，这里只是举例说明）对序列按行进行分割，然后按列进行排序；对得到的序列以步长3分割，按列排序‘最后步长为1排序。
 
 code：
-
+```
 def shell_sort(arr):
     if len(arr) <= 1:
         return arr
@@ -107,17 +100,16 @@ def shell_sort(arr):
             arr[j+gap] = temp
         gap //= 2
     return arr
-
-    
+   
 my_list = [3,2,5,9,8,6]
 print(shell_sort(my_list))
-
+```
 
 四：快速排序（交换排序）
 思想：分而治之。通过排序将序列分割为两部分，左边都是比基线条件小的数，右边都是比它大的数；然后再按照这个方法对分割后的两个序列排序，使用递归进行快速排序。
 
 code：
-
+```
 def quicksort(arr):
     if len(arr) < 1:
         return arr
@@ -130,12 +122,12 @@ def quicksort(arr):
 my_arr = [3,2,6,8,4,3,1,2,0]
 
 print(quicksort(my_arr))
-
+```
 五：简单选择排序（选择排序）
 思想：每趟从待排序的序列中选出最小的数，顺序放在以排序的序列末尾，直到全部排序为止。
 
 code：
-
+```
 def findsmallest(arr):
     smallest = arr[0]
     smallest_index = 0
@@ -153,7 +145,7 @@ def selectionsort(arr):
     return newarr
 
 print(selectionsort([2,5,7,8,6]))
-
+```
 六：堆排序（选择排序）
 思想：
 
@@ -169,7 +161,7 @@ print(selectionsort([2,5,7,8,6]))
      二、在将这两个子序列按照第一步继续二分下去；
 
      三、直到所有子序列的长度都为1，也就是不可以再二分截止。这时候再两两合并成一个有序序列即可。
-
+```
 # -*- coding:utf-8 -*-
 def merge_sort(arr):
     if len(arr) <= 1:
@@ -200,5 +192,6 @@ def merge(a, b):
 
 if __name__ == '__main__':
     merge_sort([2,4,6,2,1,123,57])
+```
 八：基数排序（非比较型整数排序算法）
 参考：http://cuijiahua.com/blog/2018/01/alogrithm_9.html
